@@ -17,6 +17,11 @@ Interpreter::Interpreter(string &rawCode)
 	}
 
 	_ValueLine = new long long[valueLineSize];
+
+	while (valueLineSize--)
+	{
+		_ValueLine[valueLineSize] = 0;
+	}
 }
 
 void Interpreter::Start()
@@ -74,5 +79,10 @@ void Interpreter::Start()
 
 		_CommandIndex++;
 	}
+	
+}
+
+Interpreter::~Interpreter()
+{
 	delete[] _ValueLine;
 }

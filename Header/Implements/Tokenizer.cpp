@@ -10,10 +10,10 @@ Tokenizer::Tokenizer()
 
 int Tokenizer::tokenize(string& rawCode , string &code, long long &valueLineIndex)
 {
-	long long codeIndex = 0 ,valueLineIndexMax = 0 , valueLineIndexLengthTmp = 0;
+	long long codeIndex = 0 ,valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1;
 	int command = -1 , loopStackCnt = 0;
 
-	while (codeIndex > rawCode.length())
+	while (codeIndex <= rawCode.length())
 	{
 		command = rawCode[codeIndex]%10;
 

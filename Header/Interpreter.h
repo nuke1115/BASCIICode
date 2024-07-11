@@ -16,6 +16,7 @@ public:
 
 	Interpreter(string &rawCode);
 	Interpreter(Interpreter&&) = delete;
+	~Interpreter();
 
 	void Start();
 

@@ -25,17 +25,18 @@ void CommandTable::MOVValueIndexRight(long long& valueIndex)
 
 void CommandTable::INCRValue(long long* valueLine, long long valueIndex)
 {
-	valueLine[valueIndex]++;
+	(valueLine[valueIndex]) += 1;
 }
 
 void CommandTable::DECRValue(long long* valueLine, long long valueIndex)
 {
-	valueLine[valueIndex]--;
+	(valueLine[valueIndex]) -= 1;
 }
 
 void CommandTable::PrintValueByASCII(long long* valueLine, long long valueIndex)
 {
-	printf("%c",valueLine[valueIndex]);
+	char buffer = valueLine[valueIndex];
+	printf("%c",buffer);
 }
 
 void CommandTable::InputValueByASCII(long long* valueLine, long long valueIndex)
@@ -44,7 +45,7 @@ void CommandTable::InputValueByASCII(long long* valueLine, long long valueIndex)
 	printf(">>");
 	scanf_s("%s",&tmp,2);
 	
-	if (tmp[2]!='\0')
+	if (tmp[1]!='\0')
 	{
 		puts("문자 한개만 입력해주세요");
 		InputValueByASCII(valueLine, valueIndex);
