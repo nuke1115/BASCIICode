@@ -9,9 +9,9 @@ Interpreter::Interpreter(string &rawCode)
 	_Running = true;
 	//tokenize
 	long long valueLineSize;
-	int exitCode = tokenizer.tokenize(rawCode,_CommandLine,valueLineSize);
+	_exitCode = tokenizer.tokenize(rawCode,_CommandLine,valueLineSize);
 
-	if (exitCode != 0)
+	if (_exitCode != 0)
 	{
 		_Running = false;
 		return;
@@ -85,5 +85,9 @@ void Interpreter::Start()
 
 Interpreter::~Interpreter()
 {
-	delete[] _ValueLine;
+	if (_exitCode == 0)
+	{
+		delete[] _ValueLine;
+	}
+	
 }

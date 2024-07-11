@@ -12,6 +12,7 @@ private:
 	int _CommandIndex = 0;
 	string _CommandLine;
 	bool _Running;
+	int _exitCode = 0;
 public:
 
 	Interpreter(string &rawCode);

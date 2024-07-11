@@ -46,7 +46,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="testCodeFIles\test.BFAC">
+    <None Include="testCodeFIles\Hello, world.BFAC">
+      <Filter>BFAC</Filter>
+    </None>
+    <None Include="testCodeFIles\test2.BFAC">
       <Filter>BFAC</Filter>
     </None>
   </ItemGroup>

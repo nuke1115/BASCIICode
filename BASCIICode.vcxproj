@@ -29,7 +29,8 @@
     <ClCompile Include="Header\Implements\unnamed.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="testCodeFIles\test.BFAC" />
+    <None Include="testCodeFIles\Hello, world.BFAC" />
+    <None Include="testCodeFIles\test2.BFAC" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\CommandTable.h" />
