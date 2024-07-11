@@ -14,6 +14,7 @@ Interpreter::Interpreter(string &rawCode)
 	if (exitCode != 0)
 	{
 		_Running = false;
+		return;
 	}
 
 	_ValueLine = new long long[valueLineSize];
