@@ -13,5 +13,55 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="구상 파일">
+      <UniqueIdentifier>{3729169f-4b57-4ecd-8f09-5e155a6dde04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BFAC">
+      <UniqueIdentifier>{bd83285a-a610-4c60-ba89-a2010faffa7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\구현 파일">
+      <UniqueIdentifier>{3e1e1e96-cd62-4407-afc8-dc20aa199dc7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="구상\구상\구상.txt">
+      <Filter>구상 파일</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\Implements\unnamed.cpp">
+      <Filter>헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\Implements\CommandTable.cpp">
+      <Filter>헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\Implements\Interpreter.cpp">
+      <Filter>헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\Implements\Tokenizer.cpp">
+      <Filter>헤더 파일\구현 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testCodeFIles\test.BFAC">
+      <Filter>BFAC</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\unnamed.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Interpreter.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\CommandTable.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Tokenizer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

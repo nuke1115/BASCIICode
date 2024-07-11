@@ -18,6 +18,25 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="구상\구상\구상.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Header\Implements\CommandTable.cpp" />
+    <ClCompile Include="Header\Implements\Interpreter.cpp" />
+    <ClCompile Include="Header\Implements\Tokenizer.cpp" />
+    <ClCompile Include="Header\Implements\unnamed.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testCodeFIles\test.BFAC" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\CommandTable.h" />
+    <ClInclude Include="Header\Interpreter.h" />
+    <ClInclude Include="Header\Tokenizer.h" />
+    <ClInclude Include="Header\unnamed.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
