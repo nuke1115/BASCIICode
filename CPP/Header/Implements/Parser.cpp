@@ -1,14 +1,14 @@
 #pragma once
 #include <string>
-#include "..\Tokenizer.h"
+#include "..\Parser.h"
 using namespace std;
 
-Tokenizer::Tokenizer()
+Parser::Parser()
 {
 
 }
 
-int Tokenizer::tokenize(string& rawCode , string &code, long long &valueLineIndex)
+int Parser::Parse(string& rawCode , string &code, long long &valueLineIndex)
 {
 	long long codeIndex = 0 ,valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1;
 	int command = -1 , loopStackCnt = 0;

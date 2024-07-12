@@ -1,26 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="구상 파일">
-      <UniqueIdentifier>{3729169f-4b57-4ecd-8f09-5e155a6dde04}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BFAC">
       <UniqueIdentifier>{bd83285a-a610-4c60-ba89-a2010faffa7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\구현 파일">
+    <Filter Include="CPP">
+      <UniqueIdentifier>{84c060ed-96c1-48ae-9036-477989a39c02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CPP\소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CPP\헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="CPP\헤더 파일\구현 파일">
       <UniqueIdentifier>{3e1e1e96-cd62-4407-afc8-dc20aa199dc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C">
+      <UniqueIdentifier>{56763947-84a4-4a58-b77d-987bb84a5ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="구상 파일">
+      <UniqueIdentifier>{3729169f-4b57-4ecd-8f09-5e155a6dde04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C\소스 파일">
+      <UniqueIdentifier>{5c61d40e-c325-4b81-ba53-368ca448960d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C\헤더 파일">
+      <UniqueIdentifier>{20cffe25-40cb-414c-bf69-486b25dee0e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C\헤더 파일\구현 파일">
+      <UniqueIdentifier>{a49dcc43-1b95-41fa-b81b-679bd75336e3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,21 +44,38 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Code\main.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="CPP\Header\Implements\CommandTable.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Header\Implements\unnamed.cpp">
-      <Filter>헤더 파일\구현 파일</Filter>
+    <ClCompile Include="CPP\Header\Implements\Interpreter.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Header\Implements\CommandTable.cpp">
-      <Filter>헤더 파일\구현 파일</Filter>
+    <ClCompile Include="CPP\Header\Implements\Parser.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Header\Implements\Interpreter.cpp">
-      <Filter>헤더 파일\구현 파일</Filter>
+    <ClCompile Include="CPP\Header\Implements\unnamed.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Header\Implements\Tokenizer.cpp">
-      <Filter>헤더 파일\구현 파일</Filter>
+    <ClCompile Include="CPP\Code\main.cpp">
+      <Filter>CPP\소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="C\Code\main.c">
+      <Filter>C\소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CPP\Header\unnamed.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CPP\Header\CommandTable.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CPP\Header\Interpreter.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CPP\Header\Parser.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="testCodeFIles\Hello, world.BFAC">
@@ -52,19 +84,5 @@
     <None Include="testCodeFIles\test2.BFAC">
       <Filter>BFAC</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Header\unnamed.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\Interpreter.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\CommandTable.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\Tokenizer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

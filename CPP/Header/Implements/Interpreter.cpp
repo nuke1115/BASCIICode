@@ -1,15 +1,15 @@
 #pragma once
 #include "..\Interpreter.h"
 #include "..\CommandTable.h"
-#include "..\Tokenizer.h"
+#include "..\Parser.h"
 
 Interpreter::Interpreter(string &rawCode)
 {
-	Tokenizer tokenizer;
+	Parser parser;
 	_Running = true;
 	//tokenize
 	long long valueLineSize;
-	_exitCode = tokenizer.tokenize(rawCode,_CommandLine,valueLineSize);
+	_exitCode = parser.Parse(rawCode,_CommandLine,valueLineSize);
 
 	if (_exitCode != 0)
 	{
