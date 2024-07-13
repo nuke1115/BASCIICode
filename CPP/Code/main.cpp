@@ -41,7 +41,6 @@ int LoadCodeFile(string &code)
 int main()
 {
 	
-	
 	string code;
 
 	LoadCodeFile(code);
@@ -50,8 +49,5 @@ int main()
 
 	interpreter.Start();
 	
-
-
-
 	return 0;
 }

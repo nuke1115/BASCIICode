@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <stack>
+#include "..\Header\CommandTable.h"
+#include "..\Header\Parser.h"
 using namespace std;
 
 class Interpreter
@@ -22,3 +24,4 @@ public:
 	void Start();
 
 };
+//TODO 스택 longlong으로 하기

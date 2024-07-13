@@ -1,21 +1,14 @@
-#pragma once
-#include <string>
+#ifndef PARSER_IMPLEMENT
+#define PARSER_IMPLEMENT
 #include "..\Parser.h"
-using namespace std;
 
-Parser::Parser()
+int Parse(string& rawCode, string& code, long long& valueLineCnt)
 {
-
-}
-
-int Parser::Parse(string& rawCode , string &code, long long &valueLineIndex)
-{
-	long long codeIndex = 0 ,valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1;
-	int command = -1 , loopStackCnt = 0;
+	long long codeIndex = 0, valueLineIndexMax = 1, valueLineIndexLengthTmp = 1, loopStackCnt = 0, command = -1;
 
 	while (codeIndex <= rawCode.length())
 	{
-		command = rawCode[codeIndex]%10;
+		command = rawCode[codeIndex] % 10;
 
 		if (command == 0)
 		{
@@ -77,11 +70,12 @@ int Parser::Parse(string& rawCode , string &code, long long &valueLineIndex)
 
 	if (loopStackCnt != 0)
 	{
-		printf("loop syntex error at %lld?",codeIndex+1);
+		printf("loop syntex error");
 		return 1;
 	}
 
-	valueLineIndex = valueLineIndexMax;
+	valueLineCnt = valueLineIndexMax;
 
 	return 0;
 }
+#endif // ! PARSER_IMPLEMENT

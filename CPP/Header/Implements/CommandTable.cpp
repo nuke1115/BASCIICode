@@ -1,76 +1,76 @@
-#pragma once
+#ifndef COMMAND_TABLE_IMPLEMENT
+#define COMMAND_TABLE_IMPLEMENT
 #include "..\CommandTable.h"
-#include <stdio.h>
-#include <stack>
-using namespace std;
-CommandTable::CommandTable()
-{
 
-}
 
-void CommandTable::EndProgram(bool &running)
+void EndProgram(bool& running)
 {
 	running = false;
 }
 
-void CommandTable::MOVValueIndexLeft(long long& valueIndex)
+void MOVValueIndexLeft(long long& valueIndex)
 {
 	valueIndex--;
 }
 
-void CommandTable::MOVValueIndexRight(long long& valueIndex)
+void MOVValueIndexRight(long long& valueIndex)
 {
 	valueIndex++;
 }
 
-void CommandTable::INCRValue(long long* valueLine, long long valueIndex)
+void INCRValue(long long valueLine[], long long valueIndex)
 {
 	(valueLine[valueIndex]) += 1;
 }
 
-void CommandTable::DECRValue(long long* valueLine, long long valueIndex)
+void DECRValue(long long valueLine[], long long valueIndex)
 {
 	(valueLine[valueIndex]) -= 1;
 }
 
-void CommandTable::PrintValueByASCII(long long* valueLine, long long valueIndex)
+void PrintValueByASCII(long long valueLine[], long long valueIndex)
 {
 	char buffer = valueLine[valueIndex];
-	printf("%c",buffer);
+	printf("%c", buffer);
 }
 
-void CommandTable::InputValueByASCII(long long* valueLine, long long valueIndex)
+void InputValueByASCII(long long valueLine[], long long valueIndex)
 {
 	char tmp[4];
+	while (getchar() != '\n') {}
 	printf(">>");
-	scanf_s("%s",&tmp,2);
-	
-	if (tmp[1]!='\0')
+	scanf_s("%s", tmp, 2);
+
+
+	if (tmp[1] != '\0')
 	{
 		puts("문자 한개만 입력해주세요");
 		InputValueByASCII(valueLine, valueIndex);
 	}
-	valueLine[valueIndex] = tmp[0];
+	else
+	{
+		valueLine[valueIndex] = tmp[0];
+	}
 }
 
-void CommandTable::PushLoopStack(stack<int> &loopStack, int commandIndex)
+void PushLoopStack(stack<int>& loopStack, int commandIndex)
 {
 	loopStack.push(commandIndex);
-	
+
 }
 
-void CommandTable::JMPCommandIndex(stack<int>& loopStack, int &commandIndex)
+void JMPCommandIndex(stack<int>& loopStack, int& commandIndex)
 {
 	commandIndex = loopStack.top();
 }
 
-void CommandTable::PopLoopStack(stack<int>& loopStack)
+void PopLoopStack(stack<int>& loopStack)
 {
 	loopStack.pop();
 }
 
-void CommandTable::PrintValueByInteger(long long* valueLine, long long valueIndex)
+void PrintValueByInteger(long long valueLine[], long long valueIndex)
 {
-	printf("%lld",valueLine[valueIndex]);
+	printf("%lld", valueLine[valueIndex]);
 }
-//TODO 오류 없는지 검사
+#endif // !COMMAND_TABLE_IMPLEMENT

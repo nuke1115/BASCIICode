@@ -1,10 +1,7 @@
-#pragma once
+#ifndef PARSER_HEADER
+#define PARSER_HEADER
 #include <string>
 using namespace std;
-class Parser
-{
-private:
-public:
-	Parser();
-	int Parse(string& rawCode , string &code , long long &valueLineCnt);
-};
+
+int Parse(string& rawCode, string& code, long long& valueLineCnt);
+#endif // !PARSER_HEADER

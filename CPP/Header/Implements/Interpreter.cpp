@@ -1,15 +1,14 @@
-#pragma once
+#ifndef INTERPRETER_IMPLEMENT
+#define INTERPRETER_IMPLEMENT
 #include "..\Interpreter.h"
-#include "..\CommandTable.h"
-#include "..\Parser.h"
 
-Interpreter::Interpreter(string &rawCode)
+Interpreter::Interpreter(string& rawCode)
 {
-	Parser parser;
+
 	_Running = true;
-	//tokenize
 	long long valueLineSize;
-	_exitCode = parser.Parse(rawCode,_CommandLine,valueLineSize);
+
+	_exitCode = Parse(rawCode, _CommandLine, valueLineSize);
 
 	if (_exitCode != 0)
 	{
@@ -27,60 +26,59 @@ Interpreter::Interpreter(string &rawCode)
 
 void Interpreter::Start()
 {
-	CommandTable commandTable;
-	while (_Running&& _CommandIndex <= _CommandLine.length())
+	while (_Running && _CommandIndex <= _CommandLine.length())
 	{
 		if (_CommandLine[_CommandIndex] == 'E')
-		{
-			commandTable.EndProgram(_Running);
+		{	
+			EndProgram(_Running);
 		}
 		else if (_CommandLine[_CommandIndex] == '>')
 		{
-			commandTable.MOVValueIndexRight(_ValueIndex);
+			MOVValueIndexRight(_ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == '<')
 		{
-			commandTable.MOVValueIndexLeft(_ValueIndex);
+			MOVValueIndexLeft(_ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == '+')
 		{
-			commandTable.INCRValue(_ValueLine, _ValueIndex);
+			INCRValue(_ValueLine, _ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == '-')
 		{
-			commandTable.DECRValue(_ValueLine, _ValueIndex);
+			DECRValue(_ValueLine, _ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == 'A')
 		{
-			commandTable.PrintValueByASCII(_ValueLine, _ValueIndex);
+			PrintValueByASCII(_ValueLine, _ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == 'S')
 		{
-			commandTable.InputValueByASCII(_ValueLine, _ValueIndex);
+			InputValueByASCII(_ValueLine, _ValueIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == '[')
 		{
-			commandTable.PushLoopStack(_LoopStack, _CommandIndex);
+			PushLoopStack(_LoopStack, _CommandIndex);
 		}
 		else if (_CommandLine[_CommandIndex] == ']')
 		{
 			if (_ValueLine[_ValueIndex] == 0)
 			{
-				commandTable.PopLoopStack(_LoopStack);
+				PopLoopStack(_LoopStack);
 			}
 			else
 			{
-				commandTable.JMPCommandIndex(_LoopStack, _CommandIndex);
+				JMPCommandIndex(_LoopStack, _CommandIndex);
 			}
 		}
 		else if (_CommandLine[_CommandIndex] == 'D')
 		{
-			commandTable.PrintValueByInteger(_ValueLine, _ValueIndex);
+			PrintValueByInteger(_ValueLine, _ValueIndex);
 		}
 
 		_CommandIndex++;
 	}
-	
+
 }
 
 Interpreter::~Interpreter()
@@ -89,5 +87,6 @@ Interpreter::~Interpreter()
 	{
 		delete[] _ValueLine;
 	}
-	
+
 }
+#endif // !INTERPRETER_IMPLEMENT
