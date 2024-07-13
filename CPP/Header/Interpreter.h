@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INTERPRETER_HEADER
+#define INTERPRETER_HEADER
 #include <string>
 #include <stack>
 #include "..\Header\CommandTable.h"
@@ -24,4 +25,4 @@ public:
 	void Start();
 
 };
-//TODO 스택 longlong으로 하기
+#endif
