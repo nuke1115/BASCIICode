@@ -6,9 +6,9 @@ Interpreter::Interpreter(string& rawCode)
 {
 
 	_Running = true;
-	long long valueLineSize;
+	int valueLineSize;
 
-	_exitCode = Parse(rawCode, _CommandLine, valueLineSize);
+	_exitCode = Parse(rawCode, _CommandLine, valueLineSize , _loopMap);
 
 	if (_exitCode != 0)
 	{
@@ -58,18 +58,18 @@ void Interpreter::Start()
 		}
 		else if (_CommandLine[_CommandIndex] == '[')
 		{
-			PushLoopStack(_LoopStack, _CommandIndex);
+			if (_ValueLine[_ValueIndex] == 0)
+			{
+				JMPCommandIndexToTail(_loopMap, _CommandIndex);
+			}
 		}
 		else if (_CommandLine[_CommandIndex] == ']')
 		{
-			if (_ValueLine[_ValueIndex] == 0)
+			if (_ValueLine[_ValueIndex] != 0)
 			{
-				PopLoopStack(_LoopStack);
+				JMPCommandIndexToHead(_loopMap, _CommandIndex);
 			}
-			else
-			{
-				JMPCommandIndex(_LoopStack, _CommandIndex);
-			}
+
 		}
 		else if (_CommandLine[_CommandIndex] == 'D')
 		{

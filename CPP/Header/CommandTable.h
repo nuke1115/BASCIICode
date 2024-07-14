@@ -1,30 +1,30 @@
 #ifndef COMMAND_TABLE_HEADER
 #define COMMAND_TABLE_HEADER
-#include <stack>
 #include <stdio.h>
+#include <unordered_map>
 using namespace std;
 
 void EndProgram(bool& running);
 
-void MOVValueIndexLeft(long long& valueIndex);
+void MOVValueIndexLeft(int& valueIndex);
 
-void MOVValueIndexRight(long long& valueIndex);
+void MOVValueIndexRight(int& valueIndex);
 
-void INCRValue(long long valueLine[], long long valueIndex);
+void INCRValue(long long valueLine[], int valueIndex);
 
-void DECRValue(long long valueLine[], long long valueIndex);
+void DECRValue(long long valueLine[], int valueIndex);
 
-void PrintValueByASCII(long long valueLine[], long long valueIndex);
+void PrintValueByASCII(long long valueLine[], int valueIndex);
 
-void InputValueByASCII(long long valueLine[], long long valueIndex);
+void InputValueByASCII(long long valueLine[], int valueIndex);
 
-void PushLoopStack(stack<int>& loopStack, int commandIndex);
+void JMPCommandIndexToTail(unordered_map<int,int> loopMap, int& commandIndex);
 
-void JMPCommandIndex(stack<int>& loopStack, int& commandIndex);
+void JMPCommandIndexToHead(unordered_map<int , int> loopMap, int& commandIndex);
 
-void PopLoopStack(stack<int>& loopStack);
 
-void PrintValueByInteger(long long valueLine[], long long valueIndex);
+
+void PrintValueByInteger(long long valueLine[], int valueIndex);
 
 
 #endif // !COMMAND_TABLE_HEADER

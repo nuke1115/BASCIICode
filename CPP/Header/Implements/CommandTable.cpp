@@ -8,36 +8,35 @@ void EndProgram(bool& running)
 	running = false;
 }
 
-void MOVValueIndexLeft(long long& valueIndex)
+void MOVValueIndexLeft(int& valueIndex)
 {
 	valueIndex--;
 }
 
-void MOVValueIndexRight(long long& valueIndex)
+void MOVValueIndexRight(int& valueIndex)
 {
 	valueIndex++;
 }
 
-void INCRValue(long long valueLine[], long long valueIndex)
+void INCRValue(long long valueLine[], int valueIndex)
 {
 	(valueLine[valueIndex]) += 1;
 }
 
-void DECRValue(long long valueLine[], long long valueIndex)
+void DECRValue(long long valueLine[], int valueIndex)
 {
 	(valueLine[valueIndex]) -= 1;
 }
 
-void PrintValueByASCII(long long valueLine[], long long valueIndex)
+void PrintValueByASCII(long long valueLine[], int valueIndex)
 {
 	char buffer = valueLine[valueIndex];
 	printf("%c", buffer);
 }
 
-void InputValueByASCII(long long valueLine[], long long valueIndex)
+void InputValueByASCII(long long valueLine[], int valueIndex)
 {
 	char tmp[4];
-	while (getchar() != '\n') {}
 	printf(">>");
 	scanf_s("%s", tmp, 2);
 
@@ -45,31 +44,30 @@ void InputValueByASCII(long long valueLine[], long long valueIndex)
 	if (tmp[1] != '\0')
 	{
 		puts("문자 한개만 입력해주세요");
+		while (getchar() != '\n') {}
 		InputValueByASCII(valueLine, valueIndex);
 	}
 	else
 	{
 		valueLine[valueIndex] = tmp[0];
+		while (getchar() != '\n') {}
 	}
 }
 
-void PushLoopStack(stack<int>& loopStack, int commandIndex)
-{
-	loopStack.push(commandIndex);
 
+void JMPCommandIndexToTail(unordered_map<int, int> loopMap, int& commandIndex)
+{
+	commandIndex = loopMap[commandIndex];
 }
 
-void JMPCommandIndex(stack<int>& loopStack, int& commandIndex)
+void JMPCommandIndexToHead(unordered_map<int, int> loopMap, int& commandIndex)
 {
-	commandIndex = loopStack.top();
+	commandIndex = loopMap[commandIndex];
 }
 
-void PopLoopStack(stack<int>& loopStack)
-{
-	loopStack.pop();
-}
 
-void PrintValueByInteger(long long valueLine[], long long valueIndex)
+
+void PrintValueByInteger(long long valueLine[], int valueIndex)
 {
 	printf("%lld", valueLine[valueIndex]);
 }

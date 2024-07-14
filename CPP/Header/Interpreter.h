@@ -1,7 +1,7 @@
 #ifndef INTERPRETER_HEADER
 #define INTERPRETER_HEADER
 #include <string>
-#include <stack>
+#include <unordered_map>;
 #include "..\Header\CommandTable.h"
 #include "..\Header\Parser.h"
 using namespace std;
@@ -10,8 +10,8 @@ class Interpreter
 {
 private:
 	long long* _ValueLine = nullptr;
-	long long _ValueIndex = 0;
-	stack<int> _LoopStack;
+	int _ValueIndex = 0;
+	unordered_map<int, int> _loopMap;
 	int _CommandIndex = 0;
 	string _CommandLine;
 	bool _Running;
