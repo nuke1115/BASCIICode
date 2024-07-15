@@ -2,39 +2,39 @@
 #define COMMAND_TABLE_IMPLEMENT
 #include "..\CommandTable.h"
 
-
 void EndProgram(bool& running)
 {
 	running = false;
 }
 
-void MOVValueIndexLeft(int& valueIndex)
+void MOVValueIndexLeft(unsigned int& valueIndex)
 {
 	valueIndex--;
 }
 
-void MOVValueIndexRight(int& valueIndex)
+void MOVValueIndexRight(unsigned int& valueIndex)
 {
 	valueIndex++;
 }
 
-void INCRValue(long long valueLine[], int valueIndex)
+void INCRValue(int valueLine[], unsigned int valueIndex)
 {
 	(valueLine[valueIndex]) += 1;
 }
 
-void DECRValue(long long valueLine[], int valueIndex)
+void DECRValue(int valueLine[], unsigned int valueIndex)
 {
 	(valueLine[valueIndex]) -= 1;
 }
 
-void PrintValueByASCII(long long valueLine[], int valueIndex)
+void PrintValueByASCII(int valueLine[], unsigned int valueIndex)
 {
-	char buffer = valueLine[valueIndex];
+	int tmp = valueLine[valueIndex];
+	char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
 	printf("%c", buffer);
 }
 
-void InputValueByASCII(long long valueLine[], int valueIndex)
+void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 {
 	char tmp[4];
 	printf(">>");
@@ -55,20 +55,18 @@ void InputValueByASCII(long long valueLine[], int valueIndex)
 }
 
 
-void JMPCommandIndexToTail(unordered_map<int, int> loopMap, int& commandIndex)
+void JMPCommandIndexToTail(unordered_map<int, int> loopMap, unsigned int& commandIndex)
 {
 	commandIndex = loopMap[commandIndex];
 }
 
-void JMPCommandIndexToHead(unordered_map<int, int> loopMap, int& commandIndex)
+void JMPCommandIndexToHead(unordered_map<int, int> loopMap, unsigned int& commandIndex)
 {
 	commandIndex = loopMap[commandIndex];
 }
 
-
-
-void PrintValueByInteger(long long valueLine[], int valueIndex)
+void PrintValueByInteger(int valueLine[], unsigned int valueIndex)
 {
-	printf("%lld", valueLine[valueIndex]);
+	printf("%d", valueLine[valueIndex]);
 }
 #endif // !COMMAND_TABLE_IMPLEMENT

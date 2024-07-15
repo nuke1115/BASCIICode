@@ -2,9 +2,10 @@
 #define PARSER_IMPLEMENT
 #include "..\Parser.h"
 
-int Parse(string& rawCode, string& code, int& valueLineCnt , unordered_map<int,int> & loopMap)
+int Parse(string& rawCode, string& code, unsigned int& valueLineCnt , unordered_map<int,int> & loopMap)
 {
-	int codeIndex = 0, valueLineIndexMax = 1, valueLineIndexLengthTmp = 1, loopStackCnt = 0, command = -1;
+	unsigned int codeIndex = 0;
+	int  valueLineIndexMax = 1, valueLineIndexLengthTmp = 1, loopStackCnt = 0, command = -1;
 	stack<int> loopStack;
 
 	while (codeIndex <= rawCode.length())
@@ -18,6 +19,14 @@ int Parse(string& rawCode, string& code, int& valueLineCnt , unordered_map<int,i
 		else if (command == 1)
 		{
 			code += '<';
+			valueLineIndexLengthTmp--;
+
+			if (valueLineIndexLengthTmp <1)
+			{
+				valueLineIndexLengthTmp = -1;
+				break;
+			}
+
 		}
 		else if (command == 2)
 		{
@@ -76,9 +85,15 @@ int Parse(string& rawCode, string& code, int& valueLineCnt , unordered_map<int,i
 		codeIndex++;
 	}
 
+	if (valueLineIndexLengthTmp < 1)
+	{
+		puts("valueLine Pointer movement range error");
+		return 2;
+	}
+
 	if (loopStackCnt != 0)
 	{
-		printf("loop syntex error");
+		puts("loop syntex error");
 		return 1;
 	}
 

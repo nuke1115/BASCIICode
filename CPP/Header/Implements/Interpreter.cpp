@@ -6,7 +6,7 @@ Interpreter::Interpreter(string& rawCode)
 {
 
 	_Running = true;
-	int valueLineSize;
+	unsigned int valueLineSize;
 
 	_exitCode = Parse(rawCode, _CommandLine, valueLineSize , _loopMap);
 
@@ -16,7 +16,7 @@ Interpreter::Interpreter(string& rawCode)
 		return;
 	}
 
-	_ValueLine = new long long[valueLineSize];
+	_ValueLine = new int[valueLineSize];
 
 	while (valueLineSize--)
 	{

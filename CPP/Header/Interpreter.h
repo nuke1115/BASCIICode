@@ -9,10 +9,10 @@ using namespace std;
 class Interpreter
 {
 private:
-	long long* _ValueLine = nullptr;
-	int _ValueIndex = 0;
-	unordered_map<int, int> _loopMap;
-	int _CommandIndex = 0;
+	int* _ValueLine = nullptr;
+	unsigned int _ValueIndex = 0;
+	unordered_map< int, int> _loopMap;
+	unsigned int _CommandIndex = 0;
 	string _CommandLine;
 	bool _Running;
 	int _exitCode = 0;
