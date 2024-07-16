@@ -55,8 +55,6 @@ void Start(struct Interpreter* interpreter)
 
 		char instruction = interpreter->_CommandLine[interpreter->_CommandIndex];
 
-		//파라미터 뜯어고치자
-		//일단 잠시 어디 좀 다녀오고
 		if (instruction == 'E')
 		{
 			EndProgram(&(interpreter->_Running));
