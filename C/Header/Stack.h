@@ -2,6 +2,7 @@
 #define UNSIGNED_INT_STACK_HEADER
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void Push(struct UnsignedIntStack* stack, unsigned int item);
 void Pop(struct UnsignedIntStack* stack);
