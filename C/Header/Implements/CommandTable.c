@@ -1,8 +1,7 @@
 #ifndef COMMAND_TABLE_IMPLEMENT
 #define COMMAND_TABLE_IMPLEMENT
 #include "..\CommandTable.h"
-#include "..\Definitions.h"
-#include <stdio.h>
+
 
 void EndProgram(cBool* running)
 {
@@ -78,12 +77,12 @@ void PrintValueByInteger(int valueLine[], unsigned int valueIndex)
 
 #pragma region Command_Index_Movement
 
-void JMPToHead(struct unsignedIntLoopMap* map, unsigned int* commandIndex)
+void JMPToHead(struct UnsignedIntLoopMap* map, unsigned int* commandIndex)
 {
 	*commandIndex = map->func_GetHeadPointThroughTail(map, *commandIndex);
 }
 
-void JMPToTail(struct unsignedIntLoopMap* map, unsigned int* commandIndex)
+void JMPToTail(struct UnsignedIntLoopMap* map, unsigned int* commandIndex)
 {
 	*commandIndex = map->func_GetTailPointThroughHead(map, *commandIndex);
 }

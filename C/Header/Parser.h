@@ -2,13 +2,9 @@
 #define PARSER_HEADER
 #include "..\Header\Stack.h"
 #include "..\Header\LoopMap.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void ParserConstructor(struct Parser* parser, char* rawCode);
-int Parse(struct Parser* parser, char rawCode[], char* code[], unsigned int* valueLineCnt, struct unsignedIntLoopMap * map , unsigned int bracketCount);
+int Parse (struct UnsignedIntLoopMap* map, char rawCode[], char* code[], unsigned int* valueLineCnt, unsigned int bracketCount);
 
-struct Parser
-{
-	int (*func_Parse)(struct Parser* parser, char rawCode[], char* code[], unsigned int* valueLineCnt, struct unsignedIntLoopMap* map, unsigned int bracketCount);
-	unsigned int rawCodeLength;
-};
 #endif // !PARSER_HEADER

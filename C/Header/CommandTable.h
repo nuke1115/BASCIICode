@@ -4,6 +4,8 @@
 #include "..\Header\Definitions.h"
 #include "..\Header\LoopMap.h"
 #include <limits.h>
+#include "..\Header\Definitions.h"
+#include <stdio.h>
 
 void EndProgram(cBool* running);
 
@@ -34,8 +36,8 @@ void PrintValueByInteger(int valueLine[], unsigned int valueIndex);
 
 #pragma region Command_Index_Movement
 
-void JMPToHead(struct unsignedIntLoopMap* map, unsigned int* commandIndex);
-void JMPToTail(struct unsignedIntLoopMap* map, unsigned int* commandIndex);
+void JMPToHead(struct UnsignedIntLoopMap* map, unsigned int* commandIndex);
+void JMPToTail(struct UnsignedIntLoopMap* map, unsigned int* commandIndex);
 
 #pragma endregion
 

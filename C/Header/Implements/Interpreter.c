@@ -2,10 +2,7 @@
 #define INTERPRETER_IMPLEMENT
 
 #include "..\Interpreter.h"
-#include "..\Parser.h"
-#include "..\CommandTable.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 
 void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], unsigned int bracketCount)
 {
@@ -16,16 +13,11 @@ void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], 
 	interpreter->_CommandLine = NULL; //parser에서 할당될 예정
 	interpreter->func_Start = Start;
 	interpreter->func_InterpreterDestructor = InterpreterDestructor;
-	interpreter->_ValueIndex = 0;
-	interpreter->_CommandIndex = 0;
 	interpreter->_Running = ctrue;
+	unsigned valueLineSize = 0;
 #pragma endregion
 
-	unsigned valueLineSize = 0;
-
-	struct Parser parser;
-	ParserConstructor(&parser, rawCommand);
-	interpreter->_exitCode = parser.func_Parse(&parser, rawCommand, &(interpreter->_CommandLine), &valueLineSize , &(interpreter->_loopMap), bracketCount);
+	interpreter->_exitCode = Parse(&(interpreter->_loopMap), rawCommand, &(interpreter->_CommandLine), &valueLineSize , bracketCount);
 
 
 	interpreter->_ValueLine = (int*)malloc(sizeof(int) * valueLineSize);
@@ -37,23 +29,20 @@ void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], 
 		return;
 	}
 
-	for (int i = 0; i < valueLineSize; i++)
+	for (unsigned int i = 0; i < valueLineSize; i++)
 	{
 		interpreter->_ValueLine[i] = 0;
 	}
-
-
-	
 }
 
 void Start(struct Interpreter* interpreter)
 {
-
+	unsigned int valueIndex = 0;
+	unsigned int commandIndex = 0;
 	while (interpreter->_Running)
 	{
-		//logics
 
-		char instruction = interpreter->_CommandLine[interpreter->_CommandIndex];
+		char instruction = interpreter->_CommandLine[commandIndex];
 
 		if (instruction == 'E')
 		{
@@ -61,54 +50,54 @@ void Start(struct Interpreter* interpreter)
 		}
 		else if (instruction == '>')
 		{
-			MOVValueIndexRight(&(interpreter->_ValueIndex));
+			MOVValueIndexRight(&(valueIndex));
 		}
 		else if (instruction == '<')
 		{
-			MOVValueIndexLeft(&(interpreter->_ValueIndex));
+			MOVValueIndexLeft(&(valueIndex));
 		}
 		else if (instruction == '+')
 		{
-			INCRValue(interpreter->_ValueLine, interpreter->_ValueIndex);
+			INCRValue(interpreter->_ValueLine, valueIndex);
 		}
 		else if (instruction == '-')
 		{
-			DECRValue(interpreter->_ValueLine, interpreter->_ValueIndex);
+			DECRValue(interpreter->_ValueLine, valueIndex);
 		}
 		else if (instruction == 'A')
 		{
-			PrintValueByASCII(interpreter->_ValueLine, interpreter->_ValueIndex);
+			PrintValueByASCII(interpreter->_ValueLine, valueIndex);
 		}
 		else if (instruction == 'S')
 		{
-			InputValueByASCII(interpreter->_ValueLine, interpreter->_ValueIndex);
+			InputValueByASCII(interpreter->_ValueLine, valueIndex);
 		}
 		else if (instruction == '[')
 		{
-			if (interpreter->_ValueLine[interpreter->_ValueIndex] == 0)
+			if (interpreter->_ValueLine[valueIndex] == 0)
 			{
-				JMPToTail(&(interpreter->_loopMap), &(interpreter->_CommandIndex));
+				JMPToTail(&(interpreter->_loopMap), &(commandIndex));
 			}
 		}
 		else if (instruction == ']')
 		{
-			if (interpreter->_ValueLine[interpreter->_ValueIndex] != 0)
+			if (interpreter->_ValueLine[valueIndex] != 0)
 			{
-				JMPToHead(&(interpreter->_loopMap), &(interpreter->_CommandIndex));
+				JMPToHead(&(interpreter->_loopMap), &(commandIndex));
 			}
 		}
 		else if (instruction == 'D')
 		{
-			PrintValueByInteger(interpreter->_ValueLine, interpreter->_ValueIndex);
+			PrintValueByInteger(interpreter->_ValueLine, valueIndex);
 		}
 
-		interpreter->_CommandIndex++;
+		commandIndex++;
 	}
 }
 
 void InterpreterDestructor(struct Interpreter* interpreter)
 {
-	interpreter->_loopMap.func_UnsingedIntLoopMapDestructor(&(interpreter->_loopMap));
+	interpreter->_loopMap.func_UnsignedIntLoopMapDestructor(&(interpreter->_loopMap));
 
 	if (interpreter->_ValueLine != NULL)
 	{
@@ -119,8 +108,6 @@ void InterpreterDestructor(struct Interpreter* interpreter)
 	{
 		free(interpreter->_CommandLine);
 	}
-
-
 
 }
 

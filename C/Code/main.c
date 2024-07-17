@@ -1,7 +1,4 @@
-#ifndef MAIN
-#define MAIN
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <limits.h>
 #include "..\Header\Definitions.h"
@@ -10,13 +7,11 @@ char extension[] = ".BFAC";
 #pragma warning(disable:4996)
 
 
-
 int EndsWith(char target[], char suffix[])
 {
 	size_t targetLength = 0, suffixLength = 5;
 
 	for (; target[targetLength] != '\0'; ++targetLength){}
-
 
 	if (suffixLength <= 0)
 	{
@@ -53,6 +48,7 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 		puts("파일 확장자 오류");
 		return 3;
 	}
+	
 
 	fp = fopen(path, "r");
 
@@ -106,7 +102,7 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 		return 4;
 	}
 
-	for (int i = 0; i <= codeLength; i++)
+	for (unsigned int i = 0; i <= codeLength; i++)
 	{
 		(*rawCode)[i] = '\0';
 	}
@@ -116,7 +112,6 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 	{
 		char ch = fgetc(fp);
 
-
 		if (ch == EOF)
 		{
 			break;
@@ -124,13 +119,9 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 
 		if (ch != 10)
 		{
-
 			(*rawCode)[Cindex] = ch;
 			Cindex++;
 		}
-
-		
-
 	}
 
 	fclose(fp);
@@ -163,9 +154,3 @@ int main()
 
 	return 0;
 }
-#endif // !MAIN
-
-/*
-TODO:
-
-*/

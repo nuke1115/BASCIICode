@@ -2,32 +2,31 @@
 #define PARSER_IMPLEMENT
 
 #include "..\Parser.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-void ParserConstructor(struct Parser* parser, char* rawCode)
+
+unsigned int GetRawCodeLength(char* rawCode)
 {
-	parser->func_Parse = Parse;
-	parser->rawCodeLength = 0;
-	for (; rawCode[parser->rawCodeLength] != '\0'; parser->rawCodeLength++)
-	{
+	unsigned int rawCodeLength = 0;
 
-	}
-	parser->rawCodeLength++;
+	for (; rawCode[rawCodeLength] != '\0'; rawCodeLength++){}
 
+	rawCodeLength++;
+	return rawCodeLength;
 }
 
-int Parse(struct Parser* parser, char rawCode[], char* code[], unsigned int* valueLineCnt, struct unsignedIntLoopMap* map , unsigned int bracketCount)
+int Parse (struct UnsignedIntLoopMap* map, char rawCode[], char* code[], unsigned int* valueLineCnt, unsigned int bracketCount)
 {
 	struct UnsignedIntStack loopStack;
 	UnsignedIntStackConstructor(&loopStack, bracketCount);
 
+	
 
 	long long loopStackCnt = 0;
-	unsigned int codeIndex = 0 , valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1 , command = 0;
+	unsigned int codeIndex = 0 , valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1 , command = 0 , rawCodeLength;
+	rawCodeLength = GetRawCodeLength(rawCode);
 
 
-	(*code) = (char*)malloc(sizeof(char) * (parser->rawCodeLength + 1));
+	(*code) = (char*)malloc(sizeof(char) * (rawCodeLength + 1));
 
 	if (*code == NULL)
 	{
@@ -36,12 +35,12 @@ int Parse(struct Parser* parser, char rawCode[], char* code[], unsigned int* val
 	}
 
 
-	for (int i = 0; i <= parser->rawCodeLength; i++)
+	for (unsigned int i = 0; i <= rawCodeLength; i++)
 	{
 		(*code)[i] = '\0';
 	}
 
-	while (codeIndex < parser->rawCodeLength)
+	while (codeIndex < rawCodeLength)
 	{
 		command = rawCode[codeIndex] % 10;
 

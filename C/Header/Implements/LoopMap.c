@@ -3,7 +3,7 @@
 #include "..\LoopMap.h"
 
 
-void SetIndexOfHeadPoint(struct unsignedIntLoopMap* map, unsigned int commandIndex)
+void SetIndexOfHeadPoint(struct UnsignedIntLoopMap* map, unsigned int commandIndex)
 {
 	map->_ArrayOfHeadPoint[map->_Index] = commandIndex;
 
@@ -13,7 +13,7 @@ void SetIndexOfHeadPoint(struct unsignedIntLoopMap* map, unsigned int commandInd
 	}
 }
 
-void SetIndexOfTailPoint(struct unsignedIntLoopMap* map, unsigned int commandIndex)
+void SetIndexOfTailPoint(struct UnsignedIntLoopMap* map, unsigned int commandIndex)
 {
 	map->_ArrayOfTailPoint[map->_Index] = commandIndex;
 
@@ -24,25 +24,23 @@ void SetIndexOfTailPoint(struct unsignedIntLoopMap* map, unsigned int commandInd
 }
 
 
-unsigned int GetTailPointThroughHead(struct unsignedIntLoopMap* map, unsigned int headPoint)
+unsigned int GetTailPointThroughHead(struct UnsignedIntLoopMap* map, unsigned int headPoint)
 {
-	unsigned int index;
-	for (index = 0; map->_ArrayOfHeadPoint[index] != headPoint; index++) {}
+	unsigned int index = 0;
+	for (; map->_ArrayOfHeadPoint[index] != headPoint; index++) {}
 
 	return map->_ArrayOfTailPoint[index];
-
 }
 
-unsigned int GetHeadPointThroughTail(struct unsignedIntLoopMap* map, unsigned int tailPoint)
+unsigned int GetHeadPointThroughTail(struct UnsignedIntLoopMap* map, unsigned int tailPoint)
 {
-	unsigned int index;
-	for (index = 0; map->_ArrayOfTailPoint[index] != tailPoint; index++){}
+	unsigned int index = 0;
+	for (; map->_ArrayOfTailPoint[index] != tailPoint; index++){}
 
 	return map->_ArrayOfHeadPoint[index];
-
 }
 
-void UnsingedIntLoopMapDestructor(struct unsignedIntLoopMap* map)
+void UnsignedIntLoopMapDestructor(struct UnsignedIntLoopMap* map)
 {
 	if (map->_ArrayOfHeadPoint != NULL)
 	{
@@ -55,20 +53,18 @@ void UnsingedIntLoopMapDestructor(struct unsignedIntLoopMap* map)
 	}
 }
 
-int UnsignedIntLoopMapConstructor(struct unsignedIntLoopMap* map , unsigned int size)
+int UnsignedIntLoopMapConstructor(struct UnsignedIntLoopMap* map , unsigned int size)
 {
 	map->func_SetIndexOfHeadPoint = SetIndexOfHeadPoint;
 	map->func_SetIndexOfTailPoint = SetIndexOfTailPoint;
 
 	map->func_GetHeadPointThroughTail = GetHeadPointThroughTail;
 	map->func_GetTailPointThroughHead = GetTailPointThroughHead;
-	map->func_UnsingedIntLoopMapDestructor = UnsingedIntLoopMapDestructor;
+	map->func_UnsignedIntLoopMapDestructor = UnsignedIntLoopMapDestructor;
 	map->_Index = 0;
 
 	map->_ArrayOfHeadPoint = NULL;
 	map->_ArrayOfTailPoint = NULL;
-
-
 
 	map->_ArrayOfHeadPoint = (unsigned int*)malloc(sizeof(unsigned int) * size);
 	map->_ArrayOfTailPoint = (unsigned int*)malloc(sizeof(unsigned int) * size);
@@ -85,20 +81,18 @@ int UnsignedIntLoopMapConstructor(struct unsignedIntLoopMap* map , unsigned int 
 		map->_ArrayOfTailPoint[i] = 0;
 	}
 
-
 	return 0;
 }
 
 
 #endif // !UNSIGNED_INT_LOOPMAP_IMPLEMENT
 /*
-head to tail =>
-1: head 부분을 가리키고 있는 상태의 인덱스의 값을 가져온다
-2: head배열에서 해당 값이 저장되있는 곳의 인덱스 값을 가져온다
-3: 가져온 인덱스 값으로 tail배열에서 값을 가져온다
-4: 값 리턴
+head값으로 tail의 값을 구하는법
+1: 찾으려는 head값이 저장되있는 배열의 인덱스 번호를 가져온다
+2: 그 인덱스 값으로 tail배열에서 값을 가져온다
+3: 그 값을 리턴한다
 
-tail to head => 위의 반대로
+tail to head => 위에서 head와 tail을 반대로
 
 
 

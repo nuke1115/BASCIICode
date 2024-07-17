@@ -2,7 +2,7 @@
 #define UNSIGNED_INT_STACK_IMPLEMENT
 
 #include "..\Stack.h"
-#include <stdlib.h>
+
 
 void UnsignedIntStackDestructor(struct UnsignedIntStack* stack)
 {
@@ -18,11 +18,15 @@ int UnsignedIntStackConstructor(struct UnsignedIntStack* stack, unsigned int siz
 	stack->func_Peek = Peek;
 	stack->func_Pop = Pop;
 	stack->func_Push = Push;
+
 	stack->func_Destructor = UnsignedIntStackDestructor;
+
 	stack->_Index = 0;
 	stack->_InternalArray = (unsigned int*)malloc(sizeof(unsigned int) * size);
+
 	if (stack->_InternalArray == NULL)
 	{
+		puts("스텍 배열 할당 실패");
 		return 1;
 	}
 
