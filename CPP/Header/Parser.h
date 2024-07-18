@@ -5,5 +5,5 @@
 #include <stack>
 using namespace std;
 
-int Parse(string& rawCode, string& code, unsigned int& valueLineCnt, unordered_map<int , int> & loopMap);
+int Parse(string& rawCode, string& code, unsigned int& valueLineCnt, unordered_map<unsigned int, unsigned int>& loopMap);
 #endif // !PARSER_HEADER

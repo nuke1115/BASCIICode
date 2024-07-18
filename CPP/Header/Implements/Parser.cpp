@@ -2,11 +2,12 @@
 #define PARSER_IMPLEMENT
 #include "..\Parser.h"
 
-int Parse(string& rawCode, string& code, unsigned int& valueLineCnt , unordered_map<int,int> & loopMap)
+int Parse(string& rawCode, string& code, unsigned int& valueLineCnt , unordered_map<unsigned int, unsigned int> & loopMap)
 {
-	unsigned int codeIndex = 0;
-	int  valueLineIndexMax = 1, valueLineIndexLengthTmp = 1, loopStackCnt = 0, command = -1;
-	stack<int> loopStack;
+	long long loopStackCnt = 0;
+	unsigned int codeIndex = 0 , command = 0 , valueLineIndexMax = 1, valueLineIndexLengthTmp = 1;
+
+	stack<unsigned int> loopStack;
 
 	while (codeIndex <= rawCode.length())
 	{
@@ -21,7 +22,7 @@ int Parse(string& rawCode, string& code, unsigned int& valueLineCnt , unordered_
 			code += '<';
 			valueLineIndexLengthTmp--;
 
-			if (valueLineIndexLengthTmp <1)
+			if (valueLineIndexLengthTmp < 1)
 			{
 				valueLineIndexLengthTmp = -1;
 				break;
@@ -57,18 +58,18 @@ int Parse(string& rawCode, string& code, unsigned int& valueLineCnt , unordered_
 		}
 		else if (command == 8)
 		{
-			
 			loopStackCnt--;
+
 			if (loopStackCnt < 0)
 			{
 				loopStackCnt = -1;
 				break;
 			}
-			int head = loopStack.top();
+
+			unsigned int head = loopStack.top();
 			loopStack.pop();
 			loopMap[head] = codeIndex;
 			loopMap[codeIndex] = head;
-
 
 			code += ']';
 		}

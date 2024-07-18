@@ -4,8 +4,6 @@
 
 Interpreter::Interpreter(string& rawCode)
 {
-
-	_Running = true;
 	unsigned int valueLineSize;
 
 	_exitCode = Parse(rawCode, _CommandLine, valueLineSize , _loopMap);

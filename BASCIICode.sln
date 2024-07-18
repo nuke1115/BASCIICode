@@ -5,6 +5,12 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BASCIICode", "BASCIICode.vcxproj", "{20BE10DD-C624-43FE-841C-CBE36C6C2828}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dummy", "dummy", "{FB339C19-C148-449F-A097-89452BB9ACFA}"
+	ProjectSection(SolutionItems) = preProject
+		CPP\Header\Implements\unnamed.cpp = CPP\Header\Implements\unnamed.cpp
+		CPP\Header\unnamed.h = CPP\Header\unnamed.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
