@@ -44,67 +44,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPP\Header\Implements\CommandTable.cpp">
-      <Filter>CPP\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CPP\Header\Implements\Interpreter.cpp">
-      <Filter>CPP\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CPP\Header\Implements\Parser.cpp">
-      <Filter>CPP\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CPP\Code\main.cpp">
-      <Filter>CPP\소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Code\main.c">
-      <Filter>C\소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Header\Implements\CommandTable.c">
-      <Filter>C\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Header\Implements\Interpreter.c">
-      <Filter>C\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Header\Implements\LoopMap.c">
-      <Filter>C\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Header\Implements\Parser.c">
-      <Filter>C\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="C\Header\Implements\Stack.c">
-      <Filter>C\헤더 파일\구현 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CPP\Header\CommandTable.h">
-      <Filter>CPP\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CPP\Header\Interpreter.h">
-      <Filter>CPP\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CPP\Header\Parser.h">
-      <Filter>CPP\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\CommandTable.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\Definitions.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\Interpreter.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\LoopMap.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\Parser.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="C\Header\Stack.h">
-      <Filter>C\헤더 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="testCodeFIles\Hello, world.BFAC">
       <Filter>BFAC</Filter>
     </None>
@@ -114,5 +53,66 @@
     <None Include="testCodeFIles\If_Test.BFAC">
       <Filter>BFAC</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SourceCode\BASCIICode\CPP\Header\CommandTable.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\CPP\Header\Interpreter.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\CPP\Header\Parser.h">
+      <Filter>CPP\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\LoopMap.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\Parser.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\Stack.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\CommandTable.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\Definitions.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\BASCIICode\C\Header\Interpreter.h">
+      <Filter>C\헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SourceCode\BASCIICode\CPP\Header\Implements\Interpreter.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\CPP\Header\Implements\Parser.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\CPP\Header\Implements\CommandTable.cpp">
+      <Filter>CPP\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\CPP\Code\main.cpp">
+      <Filter>CPP\소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Header\Implements\LoopMap.c">
+      <Filter>C\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Header\Implements\Parser.c">
+      <Filter>C\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Header\Implements\Stack.c">
+      <Filter>C\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Header\Implements\CommandTable.c">
+      <Filter>C\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Header\Implements\Interpreter.c">
+      <Filter>C\헤더 파일\구현 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\BASCIICode\C\Code\main.c">
+      <Filter>C\소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
