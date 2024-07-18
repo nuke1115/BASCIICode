@@ -51,6 +51,13 @@ int Parse (struct UnsignedIntLoopMap* map, char rawCode[], char* code[], unsigne
 		{
 			(*code)[codeIndex] = '<';
 			valueLineIndexLengthTmp--;
+
+			if (valueLineIndexLengthTmp < 1)
+			{
+				valueLineIndexLengthTmp = -1;
+				break;
+			}
+
 		}
 		else if (command == 2)
 		{
@@ -110,6 +117,12 @@ int Parse (struct UnsignedIntLoopMap* map, char rawCode[], char* code[], unsigne
 	}
 
 	loopStack.func_Destructor(&loopStack);
+
+	if (valueLineIndexLengthTmp < 1)
+	{
+		puts("valueLine Pointer movement range error");
+		return 2;
+	}
 
 	if (loopStackCnt != 0)
 	{
