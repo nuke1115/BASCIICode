@@ -56,7 +56,6 @@ void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 	}
 	else
 	{
-		while (getchar() != '\n') {}
 		valueLine[valueIndex] = tmp[0];
 	}
 }
