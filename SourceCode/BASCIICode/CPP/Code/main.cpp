@@ -36,7 +36,7 @@ int LoadCodeFile(string &code)
 
 	return 0;
 }
-
+#include <conio.h>
 int main()
 {
 	
@@ -51,9 +51,9 @@ int main()
 		interpreter.Start();
 	}
 
-	char holder;
-	printf("\n아무 문자나 입력해 종료합니다");
-	scanf_s("%c",&holder , (unsigned int)sizeof(holder));
 
+	printf("\n아무 문자나 입력해 종료합니다");
+
+	_getch();
 	return 0;
 }
