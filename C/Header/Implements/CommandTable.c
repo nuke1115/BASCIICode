@@ -44,18 +44,19 @@ void DECRValue(int valueLine[], unsigned int valueIndex)
 
 void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 {
-	char tmp[4] = "aaa";
-	while (getchar() != '\n') {}
+	unsigned char tmp[4] = "aaa";
 	printf(">>");
 	scanf_s("%s", tmp, 2);
 
 	if (tmp[1] != '\0')
 	{
+		while (getchar() != '\n') {}
 		puts("문자 한개만 입력해주세요");
 		InputValueByASCII(valueLine, valueIndex);
 	}
 	else
 	{
+		while (getchar() != '\n') {}
 		valueLine[valueIndex] = tmp[0];
 	}
 }
@@ -63,7 +64,7 @@ void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 void PrintValueByASCII(int valueLine[], unsigned int valueIndex)
 {
 	int tmp = valueLine[valueIndex];
-	char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
+	unsigned char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
 	printf("%c", buffer);
 }
 
