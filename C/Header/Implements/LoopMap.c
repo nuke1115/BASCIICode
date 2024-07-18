@@ -35,7 +35,7 @@ unsigned int GetTailPointThroughHead(struct UnsignedIntLoopMap* map, unsigned in
 unsigned int GetHeadPointThroughTail(struct UnsignedIntLoopMap* map, unsigned int tailPoint)
 {
 	unsigned int index = 0;
-	for (; map->_ArrayOfTailPoint[index] != tailPoint; index++){}
+	for (; map->_ArrayOfTailPoint[index] != tailPoint; index++) {}
 
 	return map->_ArrayOfHeadPoint[index];
 }
@@ -60,7 +60,9 @@ int UnsignedIntLoopMapConstructor(struct UnsignedIntLoopMap* map , unsigned int 
 
 	map->func_GetHeadPointThroughTail = GetHeadPointThroughTail;
 	map->func_GetTailPointThroughHead = GetTailPointThroughHead;
+
 	map->func_UnsignedIntLoopMapDestructor = UnsignedIntLoopMapDestructor;
+
 	map->_Index = 0;
 
 	map->_ArrayOfHeadPoint = NULL;

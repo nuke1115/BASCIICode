@@ -53,4 +53,4 @@ unsigned int Peek(struct UnsignedIntStack* stack)
 {
 	return stack->_InternalArray[stack->_Index - 1];
 }
-#endif // !LONGLONGSTACK_HEADER
+#endif // !UNSIGNED_INT_STACK_IMPLEMENT

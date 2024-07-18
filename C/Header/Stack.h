@@ -18,6 +18,6 @@ struct UnsignedIntStack
 	void (*func_Pop)(struct UnsignedIntStack* stack);
 	void (*func_Destructor)(struct UnsignedIntStack* stack);
 	unsigned int (*func_Peek)(struct UnsignedIntStack* stack);
-	unsigned int _Index;
+	long long _Index;
 };
 #endif // !UNSIGEND_INTSTACK_HEADER

@@ -4,11 +4,11 @@
 #include "..\Parser.h"
 
 
-unsigned int GetRawCodeLength(char* rawCode)
+unsigned int GetRawCodeLength(char rawCode[])
 {
 	unsigned int rawCodeLength = 0;
 
-	for (; rawCode[rawCodeLength] != '\0'; rawCodeLength++){}
+	for (; rawCode[rawCodeLength] != '\0'; rawCodeLength++) {}
 
 	rawCodeLength++;
 	return rawCodeLength;
@@ -25,13 +25,12 @@ int Parse (struct UnsignedIntLoopMap* map, char rawCode[], char* code[], unsigne
 	unsigned int codeIndex = 0 , valueLineIndexMax = 1 , valueLineIndexLengthTmp = 1 , command = 0 , rawCodeLength;
 	rawCodeLength = GetRawCodeLength(rawCode);
 
-
 	(*code) = (char*)malloc(sizeof(char) * (rawCodeLength + 1));
 
 	if (*code == NULL)
 	{
 		puts("배열 할당 실패");
-		return 2;
+		return 1;
 	}
 
 

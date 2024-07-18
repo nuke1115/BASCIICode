@@ -7,14 +7,19 @@
 void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], unsigned int bracketCount)
 {
 #pragma region initialize_variables
-	interpreter->_exitCode = 0;
+
 	UnsignedIntLoopMapConstructor(&(interpreter->_loopMap) , bracketCount);
+
 	interpreter->_ValueLine = NULL; //할당될 예정
 	interpreter->_CommandLine = NULL; //parser에서 할당될 예정
+	unsigned valueLineSize = 0;
+
 	interpreter->func_Start = Start;
 	interpreter->func_InterpreterDestructor = InterpreterDestructor;
+
+	interpreter->_exitCode = 0;
 	interpreter->_Running = ctrue;
-	unsigned valueLineSize = 0;
+
 #pragma endregion
 
 	interpreter->_exitCode = Parse(&(interpreter->_loopMap), rawCommand, &(interpreter->_CommandLine), &valueLineSize , bracketCount);
@@ -37,8 +42,7 @@ void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], 
 
 void Start(struct Interpreter* interpreter)
 {
-	unsigned int valueIndex = 0;
-	unsigned int commandIndex = 0;
+	unsigned int commandIndex = 0 , valueIndex = 0;
 	while (interpreter->_Running)
 	{
 

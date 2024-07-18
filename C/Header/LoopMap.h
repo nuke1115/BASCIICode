@@ -5,11 +5,11 @@
 #include <limits.h>
 
 
-void SetIndexOfHeadPoint(struct UnsignedIntLoopMap* map , unsigned int commandIndex);
-void SetIndexOfTailPoint(struct UnsignedIntLoopMap* map , unsigned int commandIndex);
+void SetIndexOfHeadPoint(struct UnsignedIntLoopMap* map, unsigned int commandIndex);
+void SetIndexOfTailPoint(struct UnsignedIntLoopMap* map, unsigned int commandIndex);
 
-unsigned int GetTailPointThroughHead(struct UnsignedIntLoopMap* map,unsigned int headPoint);
-unsigned int GetHeadPointThroughTail(struct UnsignedIntLoopMap* map,unsigned int tailPoint);
+unsigned int GetTailPointThroughHead(struct UnsignedIntLoopMap* map, unsigned int headPoint);
+unsigned int GetHeadPointThroughTail(struct UnsignedIntLoopMap* map, unsigned int tailPoint);
 
 int UnsignedIntLoopMapConstructor(struct UnsignedIntLoopMap* map, unsigned int size);
 void UnsignedIntLoopMapDestructor(struct UnsignedIntLoopMap* map);

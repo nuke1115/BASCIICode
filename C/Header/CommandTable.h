@@ -1,10 +1,8 @@
 #ifndef COMMAND_TABLE_HEADER
 #define COMMAND_TABLE_HEADER
-#include "..\Header\Stack.h"
-#include "..\Header\Definitions.h"
 #include "..\Header\LoopMap.h"
-#include <limits.h>
 #include "..\Header\Definitions.h"
+#include <limits.h>
 #include <stdio.h>
 
 void EndProgram(cBool* running);
@@ -27,9 +25,9 @@ void DECRValue(int valueLine[], unsigned int valueIndex);
 
 #pragma region I/O
 
+void PrintValueByInteger(int valueLine[], unsigned int valueIndex);
 void PrintValueByASCII(int valueLine[], unsigned int valueIndex);
 void InputValueByASCII(int valueLine[], unsigned int valueIndex);
-void PrintValueByInteger(int valueLine[], unsigned int valueIndex);
 
 #pragma endregion
 

@@ -42,13 +42,6 @@ void DECRValue(int valueLine[], unsigned int valueIndex)
 
 #pragma region I/O
 
-void PrintValueByASCII(int valueLine[], unsigned int valueIndex)
-{
-	int tmp = valueLine[valueIndex];
-	char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
-	printf("%c", buffer);
-}
-
 void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 {
 	char tmp[4] = "aaa";
@@ -65,6 +58,13 @@ void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 	{
 		valueLine[valueIndex] = tmp[0];
 	}
+}
+
+void PrintValueByASCII(int valueLine[], unsigned int valueIndex)
+{
+	int tmp = valueLine[valueIndex];
+	char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
+	printf("%c", buffer);
 }
 
 void PrintValueByInteger(int valueLine[], unsigned int valueIndex)

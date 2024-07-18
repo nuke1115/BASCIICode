@@ -7,8 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[] , unsigned int bracketCount);
+
 void Start(struct Interpreter* interpreter);
+
+void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], unsigned int bracketCount);
 void InterpreterDestructor(struct Interpreter* interpreter);
 
 struct Interpreter

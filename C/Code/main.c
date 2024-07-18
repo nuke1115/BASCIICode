@@ -3,8 +3,8 @@
 #include <limits.h>
 #include "..\Header\Definitions.h"
 #include "..\Header\Interpreter.h"
-char extension[] = ".BFAC";
 #pragma warning(disable:4996)
+char extension[] = ".BFAC";
 
 
 int EndsWith(char target[], char suffix[])
@@ -46,7 +46,7 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 	if (EndsWith(path, extension))
 	{
 		puts("파일 확장자 오류");
-		return 3;
+		return 1;
 	}
 	
 
@@ -56,7 +56,7 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 	if (fp == NULL)
 	{
 		puts("파일 열기 실패");
-		return 1;
+		return 2;
 	}
 
 	while (ctrue)
@@ -65,7 +65,7 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 
 		if (ch != 10)
 		{
-			if (ch%10 == 7 || ch%10 == 8)
+			if (ch%10 == 7)
 			{
 				(*bracketCount)++;
 			}
@@ -77,19 +77,12 @@ int LoadCodeFile(char *rawCode[] , unsigned int *bracketCount)
 		{
 			break;
 		}
-
-	}
-
-	if ((*bracketCount) & 1)
-	{
-		puts("괄호 문법 오류");
-		return 6;
 	}
 
 	if ((long long)codeLength+2 >= UINT_MAX)
 	{
 		puts("코드 길이 최대치 도달");
-		return 5;
+		return 3;
 	}
 
 	rewind(fp);
@@ -151,6 +144,14 @@ int main()
 	{
 		free(rawCode);
 	}
+
+
+	char holder;
+
+	while (getchar() != '\n') {}
+
+	printf("\n아무 문자나 입력해 종료합니다");
+	scanf_s("%c", &holder, (unsigned int)sizeof(holder));
 
 	return 0;
 }
