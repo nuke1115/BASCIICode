@@ -10,7 +10,7 @@
 
 void Start(struct Interpreter* interpreter);
 
-void InterpreterConstructor(struct Interpreter* interpreter, char rawCommand[], unsigned int bracketCount);
+void InterpreterConstructor(struct Interpreter* interpreter,char rawCommand[], unsigned int bracketCount);
 void InterpreterDestructor(struct Interpreter* interpreter);
 
 struct Interpreter

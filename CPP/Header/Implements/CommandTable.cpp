@@ -44,7 +44,7 @@ void DECRValue(int valueLine[], unsigned int valueIndex)
 
 void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 {
-	unsigned char tmp[4] = "aaa";
+	char tmp[4] = "aaa";
 	printf(">>");
 	scanf_s("%s", tmp, (unsigned int)sizeof(tmp));
 
@@ -64,7 +64,7 @@ void InputValueByASCII(int valueLine[], unsigned int valueIndex)
 void PrintValueByASCII(int valueLine[], unsigned int valueIndex)
 {
 	int tmp = valueLine[valueIndex];
-	unsigned char buffer = tmp > UCHAR_MAX ? UCHAR_MAX : tmp;
+	char buffer = tmp > CHAR_MAX ? CHAR_MAX : tmp;
 	printf("%c", buffer);
 }
 
